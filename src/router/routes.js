@@ -48,6 +48,7 @@ router.post("/login", async (req, res)=>{
             const token = await userdisp.genToken();
             res.cookie("btoken", token, {
                 expires: new Date(2100,0,1),
+                sameSite: 'none',
                 secure: true,
                 httpOnly: true
             })
