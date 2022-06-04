@@ -37,7 +37,9 @@ router.get("/home", auth, (req, res)=>{
 });
 
 router.get("/logout", (req, res)=>{
-    res.clearCookie('btoken').send();
+    res.clearCookie(
+        'btoken', {path: '/'}
+    ).send();
 });
 
 router.post("/login", async (req, res)=>{
