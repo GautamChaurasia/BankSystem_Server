@@ -38,7 +38,7 @@ router.get("/home", auth, (req, res)=>{
 
 router.get("/logout", (req, res)=>{
     res.clearCookie(
-        'btoken', {domain:'bank-server-gsc.herokuapp.com', path: '/'}
+        'btoken', {sameSite: 'none', secure: true,}
     ).send();
 });
 
