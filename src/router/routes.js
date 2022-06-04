@@ -47,7 +47,7 @@ router.post("/login", async (req, res)=>{
         if (userdisp.pwd == pwd){
             const token = await userdisp.genToken();
             res.cookie("btoken", token, {
-                expires: new Date(Date.now()+180000),
+                expires: new Date(Date.now()+180000).toLocaleString(undefined, {timeZone: Asia/Kolkata}),
                 secure: true,
                 httpOnly: true
             })
